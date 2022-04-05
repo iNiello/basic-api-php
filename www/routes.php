@@ -1,10 +1,10 @@
 <?php
 
-// ---- Commenter ce bout de code, qu'est-ce qu'il recherche ? ----
+// ---- TODO : Commenter ce bout de code, qu'est-ce qu'il recherche ? ----
 require_once __DIR__ . "/controllers/BaseController.php";
 require_once __DIR__ . "/controllers/UserController.php";
 
-// ---- Commenter ce bout de code ----
+// ---- TODO : Commenter ce bout de code ----
 $routes = [
   "/api/users/list" => ['GET', 'UserController', 'getList'],
   "/api/users/get" => ['GET', 'UserController', 'get'],

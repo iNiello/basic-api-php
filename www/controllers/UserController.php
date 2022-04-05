@@ -5,37 +5,37 @@
   {
 
     /**
-     * ---- Commenter cette méthode ----
+     * ---- TODO : Commenter cette méthode ----
      */
     public function getList() {
       try {
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $userModel = new UserModel();
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $limit = 10;
         $urlParams = $this->getQueryStringParams();
         if (isset($urlParams['limit']) && is_numeric($urlParams['limit'])) {
           $limit = $urlParams['limit'];
         }
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $offset = 0;
         $urlParams = $this->getQueryStringParams();
         if (isset($urlParams['page']) && is_numeric($urlParams['page']) && $urlParams['page'] > 0) {
           $offset = ($urlParams['page'] - 1) * $limit;
         }
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $users = $userModel->getAllUsers($offset, $limit);
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $responseData = json_encode($users);
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $this->sendOutput($responseData);
       } catch (Error $e) {
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $strErrorDesc = $e->getMessage().'Something went wrong! Please contact support.';
         $strErrorHeader = 'HTTP/1.1 500 Internal Server Error';
         $this->sendOutput($strErrorDesc, ['Content-Type: application/json', $strErrorHeader]);
@@ -43,29 +43,29 @@
     }
 
     /**
-     * ---- Commenter cette méthode ----
+     * ---- TODO : Commenter cette méthode ----
      */
     public function get() {
       try {
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $userModel = new UserModel();
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $urlParams = $this->getQueryStringParams();
         if (!isset($urlParams['id']) || !is_numeric($urlParams['id'])) {
           throw new Exception("L'identifiant est incorrect ou n'a pas été spécifié");
         }
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $user = $userModel->getSingleUser($urlParams['id']);
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $responseData = json_encode($user);
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $this->sendOutput($responseData);
       } catch (Error $e) {
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $strErrorDesc = $e->getMessage().'Something went wrong! Please contact support.';
         $strErrorHeader = 'HTTP/1.1 500 Internal Server Error';
         $this->sendOutput($strErrorDesc, ['Content-Type: application/json', $strErrorHeader]);
@@ -73,20 +73,20 @@
     }
 
     /**
-     * ---- Commenter cette méthode ----
+     * ---- TODO : Commenter cette méthode ----
      */
     public function store() {
       try {
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $userModel = new UserModel();
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $body = $this->getBody();
         if (!$body) {
           throw new Exception("L'identifiant est incorrect ou n'a pas été spécifié");
         }
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         if (!isset($body['nom'])) {
           throw new Exception("Aucun nom n'a été spécifié");
         }
@@ -100,7 +100,7 @@
           throw new Exception("Aucun profil n'a été spécifié");
         }
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $keys = array_keys($body);
         $valuesToInsert = [];
         foreach($keys as $key) {
@@ -109,16 +109,16 @@
           }
         }
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $user = $userModel->insertUser($valuesToInsert);
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $responseData = json_encode($user);
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $this->sendOutput($responseData);
       } catch (Error $e) {
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $strErrorDesc = $e->getMessage().'Something went wrong! Please contact support.';
         $strErrorHeader = 'HTTP/1.1 500 Internal Server Error';
         $this->sendOutput($strErrorDesc, ['Content-Type: application/json', $strErrorHeader]);
@@ -126,25 +126,25 @@
     }
 
     /**
-     * ---- Commenter cette méthode ----
+     * ---- TODO : Commenter cette méthode ----
      */
     public function update() {
       try {
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $userModel = new UserModel();
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $body = $this->getBody();
         if (!$body) {
           throw new Exception("L'identifiant est incorrect ou n'a pas été spécifié");
         }
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         if (!isset($body['id'])) {
           throw new Exception("Aucun identifiant n'a été spécifié");
         }
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $keys = array_keys($body);
         $valuesToUpdate = [];
         foreach($keys as $key) {
@@ -153,16 +153,16 @@
           }
         }
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $user = $userModel->updateUser($valuesToUpdate, $body['id']);
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $responseData = json_encode($user);
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $this->sendOutput($responseData);
       } catch (Error $e) {
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $strErrorDesc = $e->getMessage().'Something went wrong! Please contact support.';
         $strErrorHeader = 'HTTP/1.1 500 Internal Server Error';
         $this->sendOutput($strErrorDesc, ['Content-Type: application/json', $strErrorHeader]);
@@ -170,29 +170,29 @@
     }
 
     /**
-     * ---- Commenter cette méthode ----
+     * ---- TODO : Commenter cette méthode ----
      */
     public function destroy() {
       try {
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $userModel = new UserModel();
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $urlParams = $this->getQueryStringParams();
         if (!isset($urlParams['id']) || !is_numeric($urlParams['id'])) {
           throw new Exception("L'identifiant est incorrect ou n'a pas été spécifié");
         }
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $user = $userModel->deleteUser($urlParams['id']);
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $responseData = json_encode("L'utilisateur a été correctement supprimé");
 
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $this->sendOutput($responseData);
       } catch (Error $e) {
-        // ---- Commenter ce bout de code ----
+        // ---- TODO : Commenter ce bout de code ----
         $strErrorDesc = $e->getMessage().'Something went wrong! Please contact support.';
         $strErrorHeader = 'HTTP/1.1 500 Internal Server Error';
         $this->sendOutput($strErrorDesc, ['Content-Type: application/json', $strErrorHeader]);

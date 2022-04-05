@@ -1,19 +1,19 @@
 <?php
 
-  // ---- Commenter en détail ce bout de code, qu'est-ce qu'il recherche ? ----
+  // ---- TODO : Commenter en détail ce bout de code, qu'est-ce qu'il recherche ? ----
   require_once __DIR__ . "/config.php";
 
-  // ---- Commenter en détail ce bout de code, qu'est-ce qu'il recherche ? ----
+  // ---- TODO : Commenter en détail ce bout de code, qu'est-ce qu'il recherche ? ----
   require_once __DIR__ . "/routes.php";
 
-  // ---- Commenter ce bout de code ----
+  // ---- TODO : Commenter ce bout de code ----
   $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
   if (!isset($routes[$uri]) || $_SERVER['REQUEST_METHOD'] != $routes[$uri][0]) {
     header("HTTP/1.1 404 Not Found");
     exit();
   }
 
-  // ---- Commenter ce bout de code ----
+  // ---- TODO : Commenter ce bout de code ----
   $className = $routes[$uri][1];
   $methodeName = $routes[$uri][2];
   $objController = new $className();
