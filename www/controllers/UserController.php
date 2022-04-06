@@ -9,27 +9,27 @@
      */
     public function getList() {
       try {
-        // ---- TODO : Commenter ce bout de code ----
+        // ---- TODO : fait un nouveau usermodel ----
         $userModel = new UserModel();
 
-        // ---- TODO : Commenter ce bout de code ----
+        // ---- TODO : une limite a 10 données est défini ----
         $limit = 10;
         $urlParams = $this->getQueryStringParams();
         if (isset($urlParams['limit']) && is_numeric($urlParams['limit'])) {
           $limit = $urlParams['limit'];
         }
 
-        // ---- TODO : Commenter ce bout de code ----
+        // ---- TODO : On comment à la cle(id) 0 ----
         $offset = 0;
         $urlParams = $this->getQueryStringParams();
         if (isset($urlParams['page']) && is_numeric($urlParams['page']) && $urlParams['page'] > 0) {
           $offset = ($urlParams['page'] - 1) * $limit;
         }
 
-        // ---- TODO : Commenter ce bout de code ----
+        // ---- TODO : user est récupéré selon la user model et la limite et la position (offset) ----
         $users = $userModel->getAllUsers($offset, $limit);
 
-        // ---- TODO : Commenter ce bout de code ----
+        // ---- TODO : la "données réponse" est un user encoder en json----
         $responseData = json_encode($users);
 
         // ---- TODO : Commenter ce bout de code ----
@@ -43,14 +43,14 @@
     }
 
     /**
-     * ---- TODO : Commenter cette méthode ----
+     * ---- TODO : quand les données sont demandées en GET ----
      */
     public function get() {
       try {
-        // ---- TODO : Commenter ce bout de code ----
+        // ---- TODO : fait un nouveau usermodel ----
         $userModel = new UserModel();
 
-        // ---- TODO : Commenter ce bout de code ----
+        // ---- TODO : va verifier à travers l'URL si l'identifiant (id) est correct ----
         $urlParams = $this->getQueryStringParams();
         if (!isset($urlParams['id']) || !is_numeric($urlParams['id'])) {
           throw new Exception("L'identifiant est incorrect ou n'a pas été spécifié");
